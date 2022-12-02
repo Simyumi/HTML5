@@ -31,13 +31,8 @@ body{
 .main{
   background-color:lightgreen;
   height:50vh;
-  /* overflow: hidden; */
-  display:flow-root;
-  padding:0 15px;
-}
-.group{
-  margin: 0 15px;
-  float:left;
+  display:flex;
+  flex-direction: row;
 }
 .group1{
   background-color:salmon;
@@ -50,6 +45,7 @@ body{
 .group3{
   background-color:moccasin;
   width:190px;
+  order: -1;
 }
 /* slogan */
 .slogan{
