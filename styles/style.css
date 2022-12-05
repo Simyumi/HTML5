@@ -7,6 +7,12 @@
 *,*::before,*::after{
   box-sizing:border-box;
 }
+/* 링크스타일 */
+a{
+  color:inherit;
+  text-decoration:none;
+}
+/* 본문스타일 */
 body{
   background-color: lavender;
   font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", 
@@ -29,6 +35,9 @@ body{
   display:flex;
   flex-flow: nowrap;
   justify-content: flex-end;
+}
+.member li{
+text-transform: uppercase;
 }
 /* ::bafore  => first child  ::after => last child */
 /* .member li::before{
