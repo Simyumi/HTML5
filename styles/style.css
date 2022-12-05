@@ -2,6 +2,7 @@
 @charset "utf-8";
 @import url(./normalize.css);
 @import url(./reset.css);
+@import url(./fontello.css);
 /* 기본스타일 */
 *,*::before,*::after{
   box-sizing:border-box;
@@ -19,9 +20,23 @@ body{
 /* header */
 .header{
   padding:0 30px;
-  background-color:pink;
+  background-color:#fff;
   height:15vh;
+  border-radius: 0 0 15px 15px;
 }
+.member{
+  background-color:pink;
+  display:flex;
+  flex-flow: nowrap;
+  justify-content: flex-end;
+}
+/* ::bafore  => first child  ::after => last child */
+/* .member li::before{
+  content : ':';
+}
+.member li:first-child::before{
+  content:"";
+} */
 /* visual */
 .visual{
   background-color:orange;
