@@ -2,12 +2,15 @@
 @import url(./normalize.css);
 @import url(./reset.css);
 @import url(./fonts.css);
+
 /* 숨김 콘텐츠 */
-.a11y-hidden {
+.a11y-hidden,
+legend {
   position: absolute;
   width: 1px;
   height: 1px;
-  overflow:hidden;
+  overflow: hidden;
+  clip-path: polygon(0 0, 0 0, 0 0);
 }
 
 /* 기본 스타일 */
@@ -29,20 +32,15 @@ a {
 
 /* 본문 스타일 */
 body {
-  /* em, rem 단위를 사용해보기 */
-  font-size: 1.4rem;
   color: #212121;
-  /* background-image:url("./images/bg_flower.png"), 
-                  linear-gradient(to bottom, #ccc 0%, #eee 35%, #fff 70%, #fff 100%);;
-  background-repeat: no-repeat, repeat;
-  background-position:50% 0 , 0 0; */
-    /* linear-gradient(to bottom, #ccc 0%, #eee 35%, #fff 70%, #fff 100%); */
+  font-size: 1.4rem;
   font-family: "Pretendard Variable", Pretendard, -apple-system,
     BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
     "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-    background: url("./images/bg_flower.png") no-repeat 50% 0,
-              #ccc linear-gradient(to bottom, #ccc 0%, #eee 35%, #fff 70%, #fff 100%)repeat 0 0;
+  background: url("./images/bg_flower.png") no-repeat 50% 0,
+    #ccc linear-gradient(to bottom, #ccc 0%, #eee 35%, #fff 70%, #fff 100%)
+      repeat 0 0;
 }
 
 /* 레이아웃 */
@@ -158,6 +156,7 @@ body {
   position: absolute;
   top: 47px;
   display: none;
+  padding: 4px 0;
 }
 
 .menu-html,
@@ -182,7 +181,7 @@ body {
 }
 
 .sub-menu a::before {
-  content: '\f192';
+  content: "\f192";
   font-family: "fontello";
   font-weight: normal;
   display: inline-block;
@@ -200,12 +199,12 @@ body {
 
 .sub-menu a:hover::before,
 .sub-menu a:focus::before {
-  content: '\e800';
+  content: "\e801";
 }
 
 .sub-menu a {
   display: inline-block;
-  padding: 10px 0;
+  padding: 6px 0;
 }
 
 .sub-menu a:hover,
@@ -227,56 +226,57 @@ body {
     transform: translate(400px, 75px);
   }
 }
-@keyframes fadeEffect{
-  0%{
-    opacity:0;
+
+@keyframes fadeEffect {
+  0% {
+    opacity: 1;
   }
-  100%{
-    opacity:1;
+  100% {
+    opacity: 0;
   }
 }
 
 .visual {
-  /* background: orange; */
   height: 120px;
   position: relative;
 }
+
 .visual::before,
 .visual::after {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  /* background-repeat: no-repeat; */
-  animation: fadeEffect 2000ms alternate infinite;
-  /* animation-play-state: paused; */
+  top: 0;
+  left: 0;
+  animation: fadeEffect 2000ms infinite alternate;
 }
-.visual::before{
-  background:url("./images/ani_flower_01.png")no-repeat 0 -10px,url("./images/ani_flower_02.png")no-repeat 600px 0;
+
+.visual::before {
+  background: url("./images/ani_flower_01.png") no-repeat 0 -10px,
+    url("./images/ani_flower_02.png") no-repeat 600px 0;
 }
-.visual::after{
-  background:url("./images/ani_flower_03.png")no-repeat 300px 0,url("./images/ani_flower_04.png")no-repeat 800px 0;
-  animation-delay:1000ms;
+
+.visual::after {
+  background: url("./images/ani_flower_03.png") no-repeat 300px 0,
+    url("./images/ani_flower_04.png") no-repeat 800px 0;
+  animation-delay: 1000ms;
 }
+
 .visual-text {
   font-family: Georgia, "Times New Roman", Times, serif;
-  animation-name: moveEffect;
-  animation-duration: 1000ms;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
-  /* background-color: aqua; */
-  /* display: inline-block; */
+  animation: moveEffect 400ms ease-in-out forwards;
   position: relative;
-  z-index:1;
+  z-index: 1;
 }
+
 /* 메인 */
 .main {
-  background: lightgreen;
-  height: 50vh;
   display: flow-root;
-  padding: 0 15px;
+  background: #fff;
+  min-height: 450px;
+  padding: 30px 15px;
+  border-radius: 15px 15px 0 0;
 }
 
 .group {
@@ -285,16 +285,125 @@ body {
 }
 
 .group1 {
-  background-color: violet;
   width: 250px;
 }
+
 .group2 {
   background-color: salmon;
   width: 380px;
 }
+
 .group3 {
   background-color: gold;
   width: 190px;
+}
+
+/* 로그인 */
+.login {
+  box-shadow: 5px 5px 0 0 #ccc;
+  background: orange radial-gradient(circle at right top, orange, orangered);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.login-title {
+  color: #ff0;
+  font-size: 15px;
+  font-weight: 700;
+  text-indent: 10px;
+}
+
+.login-form {
+  background-color: #fff;
+  margin-top: 10px;
+  border-radius: 5px 5px 0 0;
+  padding: 10px 10px 0 10px;
+}
+
+.login-form fieldset {
+  position: relative;
+  border-bottom: 1px solid #aaa;
+  padding-bottom: 5px;
+}
+
+.user-email,
+.user-pw {
+  margin-bottom: 5px;
+}
+
+.login-form label {
+  display: inline-block;
+  width: 4em;
+}
+
+.login-form input {
+  width: 90px;
+  height: 24px;
+  border: 1px solid #aaa;
+  padding: 1px 1px 1px 5px;
+  border-radius: 3px;
+}
+
+.login-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 53px;
+  background-color: orangered;
+  color: #fff;
+  border: 0;
+  padding: 0 8px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+.sign {
+  background-color: #fff;
+  border-radius: 0 0 5px 5px;
+  padding: 4px 10px;
+}
+.sign li {
+  display: inline-block;
+}
+
+.sign li:first-child {
+  margin-right: 16px;
+}
+
+.sign a {
+  display: inline-block;
+  padding: 6px 0;
+  letter-spacing: -1px;
+}
+
+.sign a::before {
+  color: orangered;
+}
+
+/* 유효성 검사 배너 */
+.validation-list {
+  background-color: yellow;
+  margin-top: 25px;
+}
+
+.validation-list li {
+  margin-top: 10px;
+}
+
+.validation-list a {
+  background: url("./images/validation_icon.png") no-repeat 25px 50%,
+    #ccc linear-gradient(to bottom, #ccc, #eee);
+  padding: 0 15px 0 55px;
+  border-radius: 30px;
+  line-height: 30px;
+  border: 1px solid #aaa;
+  cursor: pointer;
+  display: block;
+}
+
+.validation-list a:hover,
+.validation-list a:focus {
+  color: #f00;
 }
 
 /* 슬로건 */
